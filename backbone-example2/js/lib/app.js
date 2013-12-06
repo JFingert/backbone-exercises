@@ -29,9 +29,6 @@ $(function () { // wait for on-ready
 		newRandomNumber: function () {
 			var number = Math.floor(Math.random() * 1000);
 			this.set('rannum', number);
-			var smallNumber = Math.floor(Math.random() * 10);
-			this.set('lilNum', number);
-
 		}
 	});
 
@@ -68,8 +65,8 @@ $(function () { // wait for on-ready
 		
 	});
 
-	var LilNumView = Backbone.View.extend({
-		el: '#lil-number-view',
+	var Coppola = Backbone.View.extend({
+		el: '#coppola-array-view',
 
 		initialize: function () {
 			this.render();
@@ -80,7 +77,7 @@ $(function () { // wait for on-ready
 		},
 
 		render: function () {
-			var randomNumber = this.model.get('lilNum');
+			var randomNumber = this.model.get('rannum');
 			var array = ["Godfather", "Rumblefish", "Outsiders", "Tucker", "Flamingo Kid", "Godfather 2", "Pinocchio", "Apocalypse Now", "Tetro", "Dracula"];
 			if (randomNumber <= 100) {
 				this.$el.html(this.template(array[0]));
@@ -113,13 +110,13 @@ var app = new AppView({model: myModel});
 
 var commentary = new AppCommentary({model: myModel});
 
-var lilNumView = new LilNumView({model: myModel})
+var coppola = new Coppola({model: myModel})
 
 app.listenTo(myModel, 'change', app.render);
 
 commentary.listenTo(myModel, 'change', commentary.render);
 
-lilNumView.listenTo(myModel, 'change', lilNumView.render);
+coppola.listenTo(myModel, 'change', coppola.render);
 
 
 window.app = app;
