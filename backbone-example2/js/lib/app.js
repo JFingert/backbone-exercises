@@ -44,7 +44,7 @@ $(function () { // wait for on-ready
 		},
 
 		template: function (str) {
-			return '<button class="pure-button pure-button-primary">Random Number Generator + Coppola Film Chooser!</button>' +
+			return '<button class="pure-button pure-button-primary">Random Number Generator + Film Chooser!</button>' +
 			'<h2>' + str + '</h2>';
 		},
 
@@ -73,12 +73,51 @@ $(function () { // wait for on-ready
 		},
 
 		template: function (str) {
-			return '<h2>' + str + '</h2>';
+			return '<h2>Coppola Film Has Been Chosen: ' + str + '</h2>';
 		},
 
 		render: function () {
 			var randomNumber = this.model.get('rannum');
 			var array = ["Godfather", "Rumblefish", "Outsiders", "Tucker", "Flamingo Kid", "Godfather 2", "Pinocchio", "Apocalypse Now", "Tetro", "Dracula"];
+			if (randomNumber <= 100) {
+				this.$el.html(this.template(array[0]));
+			} else if(randomNumber > 100 && randomNumber <= 200) {
+				this.$el.html(this.template(array[1]));
+			} else if (randomNumber > 200 && randomNumber <= 300) {
+				this.$el.html(this.template(array[2]));
+			} else if(randomNumber > 300 && randomNumber <= 400) {
+				this.$el.html(this.template(array[3]));
+			} else if(randomNumber > 400 && randomNumber <= 500) {
+				this.$el.html(this.template(array[4]));
+			} else if (randomNumber > 500 && randomNumber <= 600) {
+				this.$el.html(this.template(array[5]));
+			} else if(randomNumber > 600 && randomNumber <= 700) {
+				this.$el.html(this.template(array[6]));
+			} else if(randomNumber > 700 && randomNumber <= 800) {
+				this.$el.html(this.template(array[7]));
+			} else if (randomNumber > 800 && randomNumber <= 900) {
+				this.$el.html(this.template(array[8]));
+			} else {
+				this.$el.html(this.template(array[9]));
+			}
+	}
+		
+	});
+
+	var Kubrick = Backbone.View.extend({
+		el: '#kubrick-array-view',
+
+		initialize: function () {
+			this.render();
+		},
+
+		template: function (str) {
+			return '<h2>Kubrick Film Has Been Chosen: ' + str + '</h2>';
+		},
+
+		render: function () {
+			var randomNumber = this.model.get('rannum');
+			var array = ["The Killing", "Lolita", "The Shining", "Eyes Wide Shut", "Full Metal Jacket", "2001", "A Clockwork Orange", "Dr Stangelove", "Killer's Kiss", "Spartacus"];
 			if (randomNumber <= 100) {
 				this.$el.html(this.template(array[0]));
 			} else if(randomNumber > 100 && randomNumber <= 200) {
@@ -112,11 +151,15 @@ var commentary = new AppCommentary({model: myModel});
 
 var coppola = new Coppola({model: myModel})
 
+var kubrick = new Kubrick({model: myModel})
+
 app.listenTo(myModel, 'change', app.render);
 
 commentary.listenTo(myModel, 'change', commentary.render);
 
 coppola.listenTo(myModel, 'change', coppola.render);
+
+kubrick.listenTo(myModel, 'change', kubrick.render);
 
 
 window.app = app;
