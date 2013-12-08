@@ -120,21 +120,21 @@ $(function () { // wait for on-ready
 			var array = ["The Killing", "Lolita", "The Shining", "Eyes Wide Shut", "Full Metal Jacket", "2001", "A Clockwork Orange", "Dr Stangelove", "Killer's Kiss", "Spartacus"];
 			if (randomNumber <= 100) {
 				this.$el.html(this.template(array[0]));
-			} else if(randomNumber > 100 && randomNumber <= 200) {
+			} else if(randomNumber > 150 && randomNumber <= 250) {
 				this.$el.html(this.template(array[1]));
-			} else if (randomNumber > 200 && randomNumber <= 300) {
+			} else if (randomNumber > 250 && randomNumber <= 350) {
 				this.$el.html(this.template(array[2]));
-			} else if(randomNumber > 300 && randomNumber <= 400) {
+			} else if(randomNumber > 350 && randomNumber <= 450) {
 				this.$el.html(this.template(array[3]));
-			} else if(randomNumber > 400 && randomNumber <= 500) {
+			} else if(randomNumber > 450 && randomNumber <= 550) {
 				this.$el.html(this.template(array[4]));
-			} else if (randomNumber > 500 && randomNumber <= 600) {
+			} else if (randomNumber > 550 && randomNumber <= 650) {
 				this.$el.html(this.template(array[5]));
-			} else if(randomNumber > 600 && randomNumber <= 700) {
+			} else if(randomNumber > 650 && randomNumber <= 750) {
 				this.$el.html(this.template(array[6]));
-			} else if(randomNumber > 700 && randomNumber <= 800) {
+			} else if(randomNumber > 750 && randomNumber <= 850) {
 				this.$el.html(this.template(array[7]));
-			} else if (randomNumber > 800 && randomNumber <= 900) {
+			} else if (randomNumber > 850 && randomNumber <= 950) {
 				this.$el.html(this.template(array[8]));
 			} else {
 				this.$el.html(this.template(array[9]));
